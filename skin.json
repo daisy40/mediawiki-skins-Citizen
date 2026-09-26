@@ -957,6 +957,7 @@
 			"+ext.structuredNav.NavigationView.styles": "skinStyles/extensions/StructuredNavigation/ext.structuredNav.NavigationView.less",
 			"+ext.pygments": "skinStyles/extensions/SyntaxHighlight_GeSHi/ext.pygments.less",
 			"+ext.searchdigest.styles": "skinStyles/extensions/SearchDigest/ext.searchdigest.styles.less",
+			"+ext.SearchThumbs": "skinStyles/extensions/SearchThumbs/ext.SearchThumbs.less",
 			"+ext.tabs": "skinStyles/extensions/Tabs/ext.tabs.less",
 			"+ext.tmh.player.styles": "skinStyles/extensions/TimedMediaHandler/ext.tmh.player.styles.less",
 			"+ext.translate": "skinStyles/extensions/Translate/ext.translate.less",

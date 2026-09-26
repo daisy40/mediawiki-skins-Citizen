@@ -116,6 +116,7 @@ Citizen provides custom styles for many popular extensions via [skinStyles](http
 - [Score](https://www.mediawiki.org/wiki/Extension:Score)
 - [Scribunto](https://www.mediawiki.org/wiki/Extension:Scribunto)
 - [SearchDigest](https://www.mediawiki.org/wiki/Extension:SearchDigest)
+- [SearchThumbs](https://www.mediawiki.org/wiki/Extension:SearchThumbs)
 - [Semantic MediaWiki](https://www.mediawiki.org/wiki/Extension:Semantic_MediaWiki)
 - [Semantic Result Formats](https://www.mediawiki.org/wiki/Extension:Semantic_Result_Formats)
 - [SimpleTooltip](https://www.mediawiki.org/wiki/Extension:SimpleTooltip)
