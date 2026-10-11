@@ -215,6 +215,15 @@
 }
 
 .mw-mmv-post-image:not( .mw-mmv-untruncated ) {
+	// The collapsed bar always sits on MMV's black overlay, so links need the dark-mode colors
+	--color-link: oklch( 72% 0.108 var( --color-primary-oklch__h ) ); // color-link in dark mode
+	--color-link--hover: oklch( 80% 0.085 var( --color-primary-oklch__h ) ); // color-link--hover in dark mode
+	--color-link--active: oklch( 86% 0.06 var( --color-primary-oklch__h ) ); // color-link--active in dark mode
+	--color-visited--hover: var( --color-link--hover );
+	--color-visited--active: var( --color-link--active );
+	--color-destructive: oklch( 73% 0.155 10 ); // color-destructive in dark mode
+	--color-destructive--hover: oklch( 81% 0.095 10 ); // color-destructive--hover in dark mode
+	--color-destructive--active: oklch( 88% 0.052 10 ); // color-destructive--active in dark mode
 	color: oklch( 84% 0.028 var( --color-neutral-oklch__h ) ); // color-base in dark mode
 	background-color: transparent;
 	border-color: transparent;
