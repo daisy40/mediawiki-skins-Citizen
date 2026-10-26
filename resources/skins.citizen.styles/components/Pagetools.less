@@ -235,6 +235,7 @@
 	// containing block for fixed descendants. Dropdown.less already locks page
 	// scroll while a card is open. Opacity too — the card would inherit the fade.
 	.citizen-page-actions:has( .citizen-dropdown-details[ open ] ) {
+		z-index: @z-index-sticky + @z-index-stacking-1;
 		pointer-events: auto;
 		opacity: 1;
 		transform: none;
