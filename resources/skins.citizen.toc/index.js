@@ -148,8 +148,11 @@ const setupTableOfContents = (
 			sectionLabel.syncFromCard();
 		} )
 	} );
+	let editorActive = false;
 	const updateElements = () => {
-		sectionObserver.resume();
+		if ( !editorActive ) {
+			sectionObserver.resume();
+		}
 		sectionObserver.setElements( elements() );
 		// A rebuild reactivates its sections internally, so the control has to
 		// be told to read the card again.
@@ -157,6 +160,7 @@ const setupTableOfContents = (
 	};
 
 	mw.hook( 've.activationStart' ).add( () => {
+		editorActive = true;
 		sectionObserver.pause();
 	} );
 	mw.hook( 'wikipage.tableOfContents' ).add( ( sections ) => {
@@ -165,6 +169,7 @@ const setupTableOfContents = (
 		} );
 	} );
 	mw.hook( 've.deactivationComplete' ).add( () => {
+		editorActive = false;
 		updateElements();
 	} );
 

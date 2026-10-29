@@ -47,6 +47,7 @@ function createSectionObserver( deps ) {
 
 	let elements = initialElements;
 	let /** @type {number | undefined} */ timeoutId;
+	let paused = false;
 	let /** @type {Array<string>} */ currentIds = [];
 
 	const observer = new IntersectionObserverCtor( ( entries ) => {
@@ -115,6 +116,10 @@ function createSectionObserver( deps ) {
 	 * Calculate the intersection of each observed element.
 	 */
 	function calcIntersection() {
+		if ( paused ) {
+			return;
+		}
+
 		// IntersectionObserver will asynchronously calculate the boundingClientRect
 		// of each observed element off the main thread after `observe` is called.
 		elements.forEach( ( element ) => {
@@ -148,6 +153,7 @@ function createSectionObserver( deps ) {
 	 * Pauses intersection observation until `resume` is called.
 	 */
 	function pause() {
+		paused = true;
 		unbindScrollListener();
 		clearTimeout( timeoutId );
 		timeoutId = undefined;
@@ -159,6 +165,7 @@ function createSectionObserver( deps ) {
 	 * Resumes intersection observation.
 	 */
 	function resume() {
+		paused = false;
 		bindScrollListener();
 	}
 
