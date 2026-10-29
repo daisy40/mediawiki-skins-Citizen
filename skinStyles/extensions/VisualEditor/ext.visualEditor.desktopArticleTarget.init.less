@@ -18,14 +18,18 @@
 	}
 
 	/*
-	 * Hide various unnessecary elements when VE is active
+	 * Hide various unnecessary elements when VE is active
 	 * - Edit buttons (as you can switch them in VE)
-	 * - ToC button (does nothing in VE)
 	*/
 	#ca-ve-edit,
-	#ca-edit,
-	.citizen-toc__buttonCheckbox {
+	#ca-edit {
 		display: none;
+	}
+
+	@media ( max-width: @max-width-breakpoint-tablet ) {
+		#citizen-toc {
+			display: none;
+		}
 	}
 }
 
