@@ -50,12 +50,18 @@ function createSectionObserver( deps ) {
 	let /** @type {Array<string>} */ currentIds = [];
 
 	const observer = new IntersectionObserverCtor( ( entries ) => {
-		if ( entries.length === 0 ) {
+		// Unrendered headings (such as those in collapsed sections) report an
+		// empty rect at top: 0 and would sort as the topmost heading.
+		const rendered = entries.filter( ( entry ) => {
+			const { width, height } = entry.boundingClientRect;
+			return !( width === 0 && height === 0 );
+		} );
+		if ( rendered.length === 0 ) {
 			return;
 		}
 
 		// Sort all entries by boundingClientRect.top (top to bottom).
-		const sorted = entries.slice().sort(
+		const sorted = rendered.slice().sort(
 			( a, b ) => a.boundingClientRect.top - b.boundingClientRect.top
 		);
 
