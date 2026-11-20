@@ -168,6 +168,12 @@
 			position: unset;
 		}
 
+		// The bar clips nothing, so a button flush with its edge must follow the
+		// bar's inner radius or its fill overlaps the border arc.
+		.citizen-page-actions-more .citizen-dropdown-summary.cdx-button {
+			border-radius: ~'calc( var( --border-radius-medium ) - var( --border-width-base ) )';
+		}
+
 		// The strip scrolls, never the bar. The card below is fixed, and WebKit's
 		// compositor clips a fixed element to a scrolling ancestor, leaving the
 		// card tappable but unpainted (#1892). Sitting outside the strip is also
@@ -178,6 +184,8 @@
 			// Must not chain into browser back-navigation.
 			overscroll-behavior: contain;
 			scrollbar-width: none;
+			// Overflow clips to this radius, keeping edge tabs inside the bar's border.
+			border-radius: ~'calc( var( --border-radius-medium ) - var( --border-width-base ) )';
 
 			&::-webkit-scrollbar {
 				display: none;
