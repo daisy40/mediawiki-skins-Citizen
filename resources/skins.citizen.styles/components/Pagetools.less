@@ -191,6 +191,12 @@
 				display: none;
 			}
 		}
+
+		// Rendered even when a page has no tabs (e.g. Special:Search); an empty
+		// flex item would still add a gap.
+		&__tabs:not( :has( .citizen-menu:not( .emptyPortlet ) ) ) {
+			display: none;
+		}
 	}
 
 	// Reserve the TOC button's footprint, but only where the button is
