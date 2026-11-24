@@ -64,12 +64,14 @@
 	&-indicator {
 		position: absolute;
 		top: 0;
-		left: 0;
+		right: 100%;
 		z-index: 1;
-		width: var( --border-width-thick );
+		// Width comes from the border so it snaps to device pixels like the
+		// rail's border; a plain width would drift off it at fractional zoom.
+		width: 0;
 		height: var( --indicator-unit-height, 2rem );
-		margin-left: ~'calc( var( --border-width-thick ) * -1 )';
 		background-color: var( --color-progressive );
+		border-left: var( --border-width-thick ) solid transparent;
 		border-radius: var( --border-width-thick );
 		// Use transform for GPU-composited animation instead of top/height
 		transform: translateY( var( --indicator-top, 0 ) ) scaleY( var( --indicator-scale, 0 ) );
